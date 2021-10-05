@@ -10,7 +10,7 @@ const initialState: AuthStateType = {
 const authReducer = (state = initialState, action: AuthActionTypes): AuthStateType => {
     switch(action.type){
         case AuthActionTypeEnum.SET_IS_AUTH: 
-            return { ...state, isAuth: action.payload }
+            return { ...state, isAuth: action.payload, error: '' }
         case AuthActionTypeEnum.SET_IS_LOADING: 
             return { ...state, isLoading: action.payload }
         case AuthActionTypeEnum.SET_ERROR: 

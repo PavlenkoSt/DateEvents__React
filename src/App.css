@@ -12,3 +12,10 @@
     display: flex;
     justify-content: flex-end;
 }
+
+.error{
+    text-align: center;
+    text-transform: uppercase;
+    color: #333;
+    margin-bottom: 20px;
+}
