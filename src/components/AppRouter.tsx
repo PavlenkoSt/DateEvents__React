@@ -1,10 +1,11 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
+import { useTypedSelector } from '../hooks/useTypedSelector'
 import router from '../router'
 
 const AppRouter = () => {
 
-    const isAuth = false
+    const { isAuth } = useTypedSelector(state => state.authReducer)
 
     return (
         <>
