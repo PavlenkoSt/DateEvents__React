@@ -1,11 +1,11 @@
 import React from 'react'
 import { Layout, Menu } from 'antd'
 import { useHistory } from 'react-router-dom'
+import { useTypedSelector } from '../hooks/useTypedSelector'
 
 
 const Header = () => {
-
-    const isAuth = false
+    const { isAuth } = useTypedSelector(state => state.authReducer)
 
     const history = useHistory()
 
