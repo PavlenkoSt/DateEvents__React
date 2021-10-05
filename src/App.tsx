@@ -13,7 +13,7 @@ const App = () => {
         if(localStorage.getItem('auth')){
             setAuth(true)
         }
-    }, [])
+    }, [setAuth])
 
     return (
         <Layout>

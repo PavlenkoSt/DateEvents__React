@@ -1,9 +1,10 @@
 import React from 'react'
+import EventCalendar from '../components/EventCalendar'
 
 const Event = () => {
     return (
         <div>
-            EventPage
+            <EventCalendar/>
         </div>
     )
 }
