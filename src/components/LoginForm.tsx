@@ -1,5 +1,4 @@
 import { Form, Input, Button, Checkbox } from 'antd'
-import { useState } from 'react'
 import UserApi from '../api/UserApi'
 import { useActions } from '../hooks/useActions'
 import { useTypedSelector } from '../hooks/useTypedSelector'
@@ -19,6 +18,10 @@ const LoginForm = () => {
             const user = await UserApi.auth(formData.username, formData.password)
             if (user) {
                 setAuth(true)
+                if(formData.remember){
+                    localStorage.setItem('auth', 'true')
+                    localStorage.setItem('username', formData.username)
+                }
             } else {
                 setError('Username or password uncorrect! Try again!')
             }
