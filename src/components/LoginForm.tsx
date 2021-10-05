@@ -1,16 +1,22 @@
-import { Form, Input, Button, Checkbox } from 'antd';
-import UserApi from '../api/UserApi';
-import { useActions } from '../hooks/useActions';
-import { useTypedSelector } from '../hooks/useTypedSelector';
+import { Form, Input, Button, Checkbox } from 'antd'
+import { useState } from 'react'
+import UserApi from '../api/UserApi'
+import { useActions } from '../hooks/useActions'
+import { useTypedSelector } from '../hooks/useTypedSelector'
+
+type FormDataType = {
+    username: string,
+    password: string,
+    remember: boolean
+}
 
 const LoginForm = () => {
-    const onFinish = (values: any) => {
-        console.log('Success:', values);
 
+    const onFinish = (formData: FormDataType) => {
         setLoading(true)
 
         setTimeout(async () => {
-            const user = await UserApi.auth('user', '1234')
+            const user = await UserApi.auth(formData.username, formData.password)
             if (user) {
                 setAuth(true)
             } else {
@@ -20,9 +26,9 @@ const LoginForm = () => {
         }, 1000)
     }
 
-    const { setAuth, setLoading, setError } = useActions()
-
     const { error, isLoading } = useTypedSelector(state => state.authReducer)
+
+    const { setAuth, setLoading, setError } = useActions()
 
     return (
         <>
