@@ -13,8 +13,8 @@ const Header = () => {
         <Layout.Header >
             <Menu theme="dark" mode="horizontal" selectable={false} className='menu' >
                 { isAuth 
-                    ? <Menu.Item>Logout</Menu.Item> 
-                    : <Menu.Item onClick={() => history.push('/login')}>Login</Menu.Item> 
+                    ? <Menu.Item key='logout'>Logout</Menu.Item> 
+                    : <Menu.Item key='login' onClick={() => history.push('/login')}>Login</Menu.Item> 
                 }
             </Menu>
         </Layout.Header>
