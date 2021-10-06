@@ -7,13 +7,18 @@ import { useActions } from './hooks/useActions'
 
 const App = () => {
 
-    const { setAuth } = useActions()
+    const { setAuth, fetchGuests } = useActions()
 
     useEffect(() => {
         if(localStorage.getItem('auth')){
             setAuth(true)
+            const name = localStorage.getItem('username')
+            if(name){
+                fetchGuests(name)
+            }
         }
     }, [setAuth])
+
 
     return (
         <Layout>

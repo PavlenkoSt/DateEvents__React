@@ -22,6 +22,7 @@ const LoginForm = () => {
                     localStorage.setItem('auth', 'true')
                     localStorage.setItem('username', formData.username)
                 }
+                fetchGuests(user.username)
             } else {
                 setError('Username or password uncorrect! Try again!')
             }
@@ -31,7 +32,7 @@ const LoginForm = () => {
 
     const { error, isLoading } = useTypedSelector(state => state.authReducer)
 
-    const { setAuth, setLoading, setError } = useActions()
+    const { setAuth, setLoading, setError, fetchGuests } = useActions()
 
     return (
         <>

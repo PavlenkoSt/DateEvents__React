@@ -21,3 +21,10 @@
     color: #333;
     margin-bottom: 20px;
 }
+
+.btn{
+    margin: 20px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

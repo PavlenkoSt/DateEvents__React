@@ -2,9 +2,12 @@ import { Calendar } from 'antd'
 import React from 'react'
 
 const EventCalendar = () => {
+
     return (
         <>
-            <Calendar/>
+            <Calendar 
+                
+            />
         </>
     )
 }

@@ -11,6 +11,14 @@ const UserApi = {
         }
 
         return null
+    },
+    getAllUsernames: async (username: string) => {
+        const responce = await axios.get<UserType[]>('./users.json')
+        const filteredUsers = responce.data.filter(user => user.username !== username)
+
+        const usernames = filteredUsers.map(user => user.username)
+
+        return usernames
     }
 }
 
